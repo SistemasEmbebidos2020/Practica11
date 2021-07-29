@@ -7,10 +7,10 @@ firebase = firebase.FirebaseApplication('https://raspi1-embebidos-default-rtdb.f
 bajo1 = 22
 medio1 = 27
 
-def nivelbajo1(self):
+def nivelbajo1():
  firebase.put("/Tanque1", "/bajo1", GPIO.input(bajo1))
 
-def nivelmedio1(self):
+def nivelmedio1():
  firebase.put("/Tanque1", "/medio1", GPIO.input(medio1))
 
 
