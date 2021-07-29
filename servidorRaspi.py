@@ -34,13 +34,11 @@ def servidor():
     Request = Request[5 : int(len(Request)-9)]
     #print(Request)
     if Request == 'on1':
-      my_callback1()
       print('bomba1 encendida')
       GPIO.output(led1,True)
       GPIO.output(led2,False)
       
     if Request == 'on2':
-      my_callback2()
       print('bomba2 encendida')
       GPIO.output(led2,True)
       GPIO.output(led1,False)
