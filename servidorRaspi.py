@@ -9,8 +9,8 @@ led1 = 20
 led2 = 21
 
 
-print(socket.gethostbyname(socket.gethostname()))
- 
+myip = socket.gethostbyname(socket.gethostname()))
+print (myip)
 def peripheral_setup():
  GPIO.setmode(GPIO.BCM)
  GPIO.setup(led1, GPIO.OUT)
@@ -44,7 +44,7 @@ def servidor():
       GPIO.output(led1,False)
       
     
- server_address_httpd = ('192.168.0.128',8001)
+ server_address_httpd = (myip,8001)
  httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
  print('conectando a servidor')
  print(httpd.fileno())
