@@ -9,7 +9,7 @@ led1 = 20
 led2 = 21
 
 
-myip = socket.gethostbyname(socket.gethostname()))
+myip = socket.gethostbyname(socket.gethostname())
 print (myip)
 def peripheral_setup():
  GPIO.setmode(GPIO.BCM)
