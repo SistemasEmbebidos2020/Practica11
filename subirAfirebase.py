@@ -23,8 +23,8 @@ def peripheral_setup():
  GPIO.setup(ld1, GPIO.OUT)
  GPIO.setup(ld2, GPIO.OUT)
 
- GPIO.add_event_detect(ld1,GPIO.Falling,led1,bouncetime=30)
- GPIO.add_event_detect(ld2,GPIO.Falling,led2,bouncetime=30)
+ GPIO.add_event_detect(ld1,GPIO.FALLING,led1,bouncetime=30)
+ GPIO.add_event_detect(ld2,GPIO.FALLING,led2,bouncetime=30)
 
 
 
