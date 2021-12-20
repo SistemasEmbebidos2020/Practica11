@@ -4,23 +4,27 @@ from firebase import firebase
 
 firebase = firebase.FirebaseApplication('https://raspi1-embebidos-default-rtdb.firebaseio.com/', None)
 
-bajo1 = 22
-medio1 = 27
+bt1 = 22
+bt2 = 27
+ld1 = 12
+ld2 = 14
 
-def nivelbajo1():
- firebase.put("/Tanque1", "/bajo1", GPIO.input(bajo1))
-
-def nivelmedio1():
- firebase.put("/Tanque1", "/medio1", GPIO.input(medio1))
-
+def led1():
+ firebase.put("/Led", "/led1", not(GPIO.input(bt1)))
+ GPIO.output(ld1,not(GPIO.input(bt1)))
+def led2():
+ firebase.put("/Led", "/led2", not(GPIO.input(bt2)))
+ GPIO.output(ld2,not(GPIO.input(bt2)))
 
 def peripheral_setup():
  GPIO.setmode(GPIO.BCM)
- GPIO.setup(bajo1, GPIO.IN, GPIO.PUD_DOWN)
- GPIO.setup(medio1, GPIO.IN, GPIO.PUD_DOWN)
+ GPIO.setup(bt1, GPIO.IN, GPIO.PUD_DOWN)
+ GPIO.setup(bt2, GPIO.IN, GPIO.PUD_DOWN)
+ GPIO.setup(ld1, GPIO.OUT)
+ GPIO.setup(ld2, GPIO.OUT)
 
- GPIO.add_event_detect(bajo1,GPIO.BOTH,nivelbajo1,bouncetime=30)
- GPIO.add_event_detect(medio1,GPIO.BOTH,nivelmedio1,bouncetime=30)
+ GPIO.add_event_detect(ld1,GPIO.Falling,led1,bouncetime=30)
+ GPIO.add_event_detect(ld2,GPIO.Falling,led2,bouncetime=30)
 
 
 
