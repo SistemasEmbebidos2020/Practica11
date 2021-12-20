@@ -7,7 +7,7 @@ firebase = firebase.FirebaseApplication('https://raspi1-embebidos-default-rtdb.f
 bt1 = 22
 bt2 = 27
 ld1 = 12
-ld2 = 14
+ld2 = 4
 
 def led1():
  firebase.put("/Led", "/led1", not(GPIO.input(ld1)))
