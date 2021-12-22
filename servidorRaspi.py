@@ -5,8 +5,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import RPi.GPIO as GPIO
 from time import*
 
-led1 = 20
-led2 = 21
+led1 = 12
+led2 = 4
 
 
 myip = socket.gethostbyname(socket.gethostname())
