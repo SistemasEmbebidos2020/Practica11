@@ -8,9 +8,17 @@ from time import*
 led1 = 12
 led2 = 4
 
+"""
+#primera opcion
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+print(s.getsockname()[0])"""
 
+#segunda opcion
 myip = socket.gethostbyname(socket.gethostname())
 print (myip)
+
+
 def peripheral_setup():
  GPIO.setmode(GPIO.BCM)
  GPIO.setup(led1, GPIO.OUT)
