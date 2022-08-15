@@ -8,15 +8,12 @@ from time import*
 led1 = 12
 led2 = 4
 
-"""
-#primera opcion
+
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
-print(s.getsockname()[0])"""
-
-#segunda opcion
-myip = socket.gethostbyname(socket.gethostname())
+myip = s.getsockname()[0]
 print (myip)
+
 
 
 def peripheral_setup():
@@ -52,7 +49,7 @@ def servidor():
       GPIO.output(led1,False)
       
     
- server_address_httpd = (myip,8001)
+ server_address_httpd = (myip,8901) #utilizar diferentes puertos para cada raspberry
  httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
  print('conectando a servidor')
  print(httpd.fileno())
