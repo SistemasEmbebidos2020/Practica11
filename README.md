@@ -5,5 +5,5 @@
 ## sudo pip3 install firebase
 
 ## git clone https://github.com/SistemasEmbebidos2020/Practica11.git
-## pip install -r requerimientos.txt
+## sudo pip3 install nombre_del_módulo
 
