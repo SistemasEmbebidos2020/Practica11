@@ -9,10 +9,10 @@ bt2 = 27
 ld1 = 12
 ld2 = 4
 
-def led1():
+def led1(self):
  firebase.put("/Led", "/led1", not(GPIO.input(ld1)))
  GPIO.output(ld1,not(GPIO.input(ld1)))
-def led2():
+def led2(self):
  firebase.put("/Led", "/led2", not(GPIO.input(ld2)))
  GPIO.output(ld2,not(GPIO.input(ld2)))
 
