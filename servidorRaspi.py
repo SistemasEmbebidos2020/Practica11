@@ -35,12 +35,12 @@ def servidor():
     Request = Request[5 : int(len(Request)-9)]
     #print(Request)
     if Request == 'on1':
-      stado = 'led1 encendida'
+      stado = 'led1 encendido'
       print(stado)
       GPIO.output(led1,True)
       
     if Request == 'on2':
-      stado='led2 encendida'
+      stado='led2 encendido'
       print(stado)
       GPIO.output(led2,True)
 
@@ -50,7 +50,7 @@ def servidor():
       GPIO.output(led1,False)
       
     if Request == 'off2':
-      stado='led2 apago'
+      stado='led2 apagado'
       print(stado)
       GPIO.output(led2,False)
 
