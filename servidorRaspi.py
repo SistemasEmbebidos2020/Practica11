@@ -65,7 +65,7 @@ def servidor():
  server_address_httpd = (myip,puerto) #utilizar diferentes puertos para cada raspberry
  httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
  print('conectando a servidor')
- print(httpd.fileno())
+ #print(httpd.fileno())
  httpd.serve_forever()
  
  
@@ -80,7 +80,7 @@ def main () :
   while 1 :  
    servidor()
  except(KeyboardInterrupt,SystemExit):
-  print ("BYE")
+  print ("Servidor detenido")
   GPIO.cleanup()
 # Command line execution
 if __name__ == '__main__' :
