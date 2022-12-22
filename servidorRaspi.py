@@ -7,12 +7,13 @@ from time import*
 
 led1 = 12
 led2 = 4
-
+stado=""
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 myip = s.getsockname()[0]
-print (myip)
+puerto = 9901
+print (str(myip)+":"+str(puerto))
 
 
 
@@ -29,27 +30,39 @@ def servidor():
    def do_GET(self):
     global Request
 
-    messagetosend = bytes('Solicitando',"utf")
+
+    Request = self.requestline
+    Request = Request[5 : int(len(Request)-9)]
+    #print(Request)
+    if Request == 'on1':
+      stado = 'led1 encendida'
+      print(stado)
+      GPIO.output(led1,True)
+      
+    if Request == 'on2':
+      stado='led2 encendida'
+      print(stado)
+      GPIO.output(led2,True)
+
+     if Request == 'off1':
+      stado='led1 apagado'
+      print(stado)
+      GPIO.output(led1,False)
+      
+    if Request == 'off2':
+      stado='led2 apago'
+      print(stado)
+      GPIO.output(led2,False)
+
+    messagetosend = bytes(stado,"utf")
     self.send_response(200)
     self.send_header('Content-Type', 'text/plain')
     self.send_header('Content-Length', len(messagetosend))
     self.end_headers()
     self.wfile.write(messagetosend)
-    Request = self.requestline
-    Request = Request[5 : int(len(Request)-9)]
-    #print(Request)
-    if Request == 'on1':
-      print('bomba1 encendida')
-      GPIO.output(led1,True)
-      GPIO.output(led2,False)
-      
-    if Request == 'on2':
-      print('bomba2 encendida')
-      GPIO.output(led2,True)
-      GPIO.output(led1,False)
-      
     
- server_address_httpd = (myip,8901) #utilizar diferentes puertos para cada raspberry
+    
+ server_address_httpd = (myip,puerto) #utilizar diferentes puertos para cada raspberry
  httpd = HTTPServer(server_address_httpd, RequestHandler_httpd)
  print('conectando a servidor')
  print(httpd.fileno())
