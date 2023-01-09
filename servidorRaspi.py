@@ -44,7 +44,7 @@ def servidor():
       print(stado)
       GPIO.output(led2,True)
 
-     if Request == 'off1':
+    if Request == 'off1':
       stado='led1 apagado'
       print(stado)
       GPIO.output(led1,False)
