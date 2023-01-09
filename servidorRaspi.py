@@ -77,8 +77,8 @@ def main () :
 
 # Infinite loop
  try:
-  while 1 :  
-   servidor()
+  #while 1 : 
+  servidor()
  except(KeyboardInterrupt,SystemExit):
   print ("Servidor detenido")
   GPIO.cleanup()
